@@ -7,7 +7,15 @@ def root_check():                                 # Function to determine if pro
 	else:					  # Returning 0 is the user is any other
 		return 0 # '' '' '' '' '' '' '' '' '' '' '' ''
 if root_check()==1 :
-	os.system('export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g" && ./prebuilts/sdk/tools/jack-admin kill-server && ./prebuilts/sdk/tools/jack-admin start-server')
-	print "Done! Jack fixed!"
+	if(os.path.exists(".repo")):
+		print ".repo exists checking for executable"
+		if (os.path.exists("./prebuilts/sdk/tools/jack-admin")):
+			print "Jack executable found in ./prebuilts/sdk/tools/jack-admin"
+			os.system('export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g" && ./prebuilts/sdk/tools/jack-admin kill-server && ./prebuilts/sdk/tools/jack-admin start-server')
+			print "Jack should be fixed now. If issue persists try starting jack server manually and running this program"
+	else:
+		print "This does not appear to be repo initialized directory"
+		else :
+			print "Jack is not found in your rom sdk, make sure you have jack executable in ./prebuilts/sdk/tools/jack-admin "
 else :
 	print "You are not root! Please run this program as root."
