@@ -13,9 +13,9 @@ if root_check()==1 :
 			print "Jack executable found in ./prebuilts/sdk/tools/jack-admin"
 			os.system('export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g" && ./prebuilts/sdk/tools/jack-admin kill-server && ./prebuilts/sdk/tools/jack-admin start-server')
 			print "Jack should be fixed now. If issue persists try starting jack server manually and running this program"
-	else:
-		print "This does not appear to be repo initialized directory"
 		else :
 			print "Jack is not found in your rom sdk, make sure you have jack executable in ./prebuilts/sdk/tools/jack-admin "
+	else :
+		print "This does not appear to be repo initialized directory"
 else :
 	print "You are not root! Please run this program as root."
