@@ -6,6 +6,7 @@ def root_check():                                 # Function to determine if pro
 		return 1                          # Returning 1 if the user is root
 	else:					  # Returning 0 is the user is any other
 		return 0 # '' '' '' '' '' '' '' '' '' '' '' ''
+print __file__+" v2"
 if root_check()==1 :
 	if(os.path.exists(".repo")):
 		print ".repo exists checking for executable"
