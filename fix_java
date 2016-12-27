@@ -13,6 +13,9 @@ if root_check()==1 :
 		if (os.path.exists("./prebuilts/sdk/tools/jack-admin")):
 			if (os.path.exists(os.path.expanduser("~/.jack-server")) and os.path.exists(os.path.expanduser("~/.jack-settings"))):
 				print "Jack executable found in ./prebuilts/sdk/tools/jack-admin"
+				os.system('/prebuilts/sdk/tools/jack-admin kill-server')
+				os.system('/prebuilts/sdk/tools/jack-admin start-server')
+				os.system('/prebuilts/sdk/tools/jack-admin kill-server')
 				os.system('export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g" && ./prebuilts/sdk/tools/jack-admin kill-server && ./prebuilts/sdk/tools/jack-admin start-server')
 				print "Jack should be fixed now. If issue persists try starting jack server manually and running this program"
 			else :
