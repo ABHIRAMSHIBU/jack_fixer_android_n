@@ -6,7 +6,7 @@ def root_check():                                 # Function to determine if pro
 		return 1                          # Returning 1 if the user is root
 	else:					  # Returning 0 is the user is any other
 		return 0 # '' '' '' '' '' '' '' '' '' '' '' ''
-print __file__+" v2"
+print __file__+" v3"
 if root_check()==1 :
 	if(os.path.exists(".repo")):
 		print ".repo exists checking for executable"
@@ -16,7 +16,7 @@ if root_check()==1 :
 				os.system('./prebuilts/sdk/tools/jack-admin kill-server')
 				os.system('./prebuilts/sdk/tools/jack-admin start-server')
 				os.system('./prebuilts/sdk/tools/jack-admin kill-server')
-				os.system('export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g" && ./prebuilts/sdk/tools/jack-admin kill-server && ./prebuilts/sdk/tools/jack-admin start-server')
+				os.system('export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g" && ./prebuilts/sdk/tools/jack-admin start-server')
 				print "Jack should be fixed now. If issue persists try starting jack server manually and running this program"
 			else :
 				print "ERROR:Jack is not installed in your home directory"
